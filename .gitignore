@@ -1,1 +1,5 @@
 libftprintf.a
+*.out
+main.c
+*.outpft/
+pft/

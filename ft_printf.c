@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/19 14:15:18 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/19 18:01:29 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@
  */
 int	ft_printf(const char *str, ...)
 {
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd((char *)str, 1);
+
+	return (0);
 }
