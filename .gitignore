@@ -1,4 +1,5 @@
 libftprintf.a
+srcs/*.o
 *.out
 main.c
 *.outpft/

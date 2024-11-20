@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 12:26:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/20 12:51:43 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,28 @@
  */
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	va_start(args, str);
-	int count;
+	va_list	args;
+	int		count;
 
+	va_start(args, str);
 	count = 0;
-	while(*str)
+	while (*str)
 	{
 		if (*str == '%' && *(str + 1) != '\0')
 		{
 			str++;
 			if (*str == 'c')
-				ft_putchar_fd((char)va_arg(args, int), 1);
+				count += ft_putchar_fd_retlen((char)va_arg(args, int), 1);
 			else if (*str == 's')
-				ft_printf(va_arg(args, char *));
+				count += ft_printf(va_arg(args, char *));
 			else
-				ft_printf(str);
+			{
+				count += ft_putchar_fd_retlen('%', 1);
+				count += ft_printf(str);
+			}
 		}
 		else
-		{
-			ft_putchar_fd('%', 1);
-			ft_putchar_fd(*str, 1);
-		}
+			count += ft_putchar_fd_retlen(*str, 1);
 		str++;
 	}
 	return (count);
