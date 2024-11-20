@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 14:22:23 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:39:40 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 // }
 
 /**
- * @brief
- *
- * @param str
- * @param args
- * @return int
+ * @brief 
+ * 
+ * @param str 
+ * @param args 
+ * @return int 
  */
 int	_format(const char **str, va_list args)
 {
@@ -38,6 +38,8 @@ int	_format(const char **str, va_list args)
 			count += ft_printf(va_arg(args, char *));
 		else if (**str == 'd' || **str == 'i')
 			count += ft_printf(ft_itoa(va_arg(args, int)));
+		else if (**str == 'u')
+			count += ft_printf(ft_utoa(va_arg(args, unsigned int)));
 		else
 		{
 			count += ft_putchar_fd_retlen('%', 1);
