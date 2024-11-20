@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 13:29:51 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/20 13:38:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,38 @@
 // {
 // 	if(format)
 // }
+
+/**
+ * @brief
+ *
+ * @param str
+ * @param args
+ * @return int
+ */
+int	_format(char *str, va_list args)
+{
+	int	count;
+
+	count = 0;
+	if (*str == '%' && *(str + 1) != '\0')
+	{
+		str++;
+		if (*str == 'c')
+			count += ft_putchar_fd_retlen((char)va_arg(args, int), 1);
+		else if (*str == 's')
+			count += ft_printf(va_arg(args, char *));
+		else if (*str == 'd')
+			count += ft_printf(ft_itoa(va_arg(args, int)));
+		else
+		{
+			count += ft_putchar_fd_retlen('%', 1);
+			count += ft_printf(str);
+		}
+	}
+	else
+		count += ft_putchar_fd_retlen(*str, 1);
+	return (count);
+}
 
 /**
  * @brief Converts and outputs strings according to format
@@ -33,23 +65,7 @@ int	ft_printf(const char *str, ...)
 	count = 0;
 	while (*str)
 	{
-		if (*str == '%' && *(str + 1) != '\0')
-		{
-			str++;
-			if (*str == 'c')
-				count += ft_putchar_fd_retlen((char)va_arg(args, int), 1);
-			else if (*str == 's')
-				count += ft_printf(va_arg(args, char *));
-			else if (*str == 'd')
-				count += ft_printf(ft_itoa(va_arg(args, int)));
-			else
-			{
-				count += ft_putchar_fd_retlen('%', 1);
-				count += ft_printf(str);
-			}
-		}
-		else
-			count += ft_putchar_fd_retlen(*str, 1);
+		count += _format(str, args);
 		str++;
 	}
 	return (count);
