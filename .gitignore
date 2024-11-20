@@ -1,6 +1,8 @@
 libftprintf.a
 srcs/*.o
 *.out
+main
 main.c
 *.outpft/
 pft/
+.vscode/
