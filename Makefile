@@ -6,28 +6,35 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 11:31:03 by ttsubo            #+#    #+#              #
-#    Updated: 2024/11/20 11:33:05 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/11/20 12:25:35 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
-GCC		= gcc -Wall -Wextra -Werror
-INCDIR	= ./inclides
-SRCDIR	= ./srcs
-LIBFT	= $(SRCDIR)/libft
+TARGET	= libftprintf.a
+LIBFT	= libft
+CC 		= gcc -Wall -Wextra -Werror
+SRCS	= srcs/ft_printf.c
 
-.PHONY: all clean fclean re
+OBJS	= $(SRCS:.c=.o)
 
-all: $(NAME)
+all: $(TARGET)
 
-$(NAME): $(OBJS)
-	$(MAKE) -C ./libft
-	cp libft/libft.a $(NAME)
-	ar rcs $(NAME) $(OBJS)
+$(TARGET): $(OBJS)
+	$(MAKE) -C $(LIBFT)
+	cp $(LIBFT)/libft.a $@
+	ar rcs $@ $^
+
+%.o: %.c
+	$(CC) -c $< -Iincludes -o $@ 
 
 clean:
-	make clean -C ./libft
+	rm -f $(OBJS) $(B_OBJS)
+	$(MAKE) clean -C $(LIBFT)
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C ./libft
+	rm -f $(TARGET)
+	$(MAKE) fclean -C $(LIBFT)
+
+re: fclean all
+
+.PHONY: all clean fclean re
