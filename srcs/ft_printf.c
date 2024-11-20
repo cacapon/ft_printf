@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 13:38:28 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:22:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,29 @@
  * @param args
  * @return int
  */
-int	_format(char *str, va_list args)
+int	_format(const char **str, va_list args)
 {
 	int	count;
 
 	count = 0;
-	if (*str == '%' && *(str + 1) != '\0')
+	if (**str == '%' && *(*str + 1) != '\0')
 	{
-		str++;
-		if (*str == 'c')
+		(*str)++;
+		if (**str == 'c')
 			count += ft_putchar_fd_retlen((char)va_arg(args, int), 1);
-		else if (*str == 's')
+		else if (**str == 's')
 			count += ft_printf(va_arg(args, char *));
-		else if (*str == 'd')
+		else if (**str == 'd' || **str == 'i')
 			count += ft_printf(ft_itoa(va_arg(args, int)));
 		else
 		{
 			count += ft_putchar_fd_retlen('%', 1);
-			count += ft_printf(str);
+			count += ft_putchar_fd_retlen(**str, 1);
 		}
 	}
 	else
-		count += ft_putchar_fd_retlen(*str, 1);
+		count += ft_putchar_fd_retlen(**str, 1);
+	(*str)++;
 	return (count);
 }
 
@@ -64,9 +65,7 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	count = 0;
 	while (*str)
-	{
-		count += _format(str, args);
-		str++;
-	}
+		count += _format(&str, args);
+	va_end(args);
 	return (count);
 }
