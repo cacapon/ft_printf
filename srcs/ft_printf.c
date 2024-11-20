@@ -6,19 +6,9 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/19 18:01:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/20 11:23:52 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-	return:	output char length. (without '\0')
-*/
-
-// va_start(va_list, any):
-// va_arg,va_endが後に使うapを初期化する anyには固定長の変数をセット
-// va_arg(ap, type):		va指定した型で取り出す
-// va_copy:
-//
 
 #include "ft_printf.h"
 
@@ -36,7 +26,26 @@
  */
 int	ft_printf(const char *str, ...)
 {
-	ft_putstr_fd((char *)str, 1);
+	va_list args;
+	va_start(args, str);
+	int count;
 
-	return (0);
+	count = 0;
+	while(*str)
+	{
+		if (*str == '%' && *(str + 1) != '\0')
+		{
+			str++;
+			if (*str == 'c')
+				count += ft_putchar_fd((char)va_arg(args, int), 1);
+			else if (*str == 's')
+				ft_printf(va_arg(args, char *));
+			else
+				ft_printf(str);
+		}
+		else
+			ft_putchar_fd(*str, 1);
+		str++;
+	}
+	return (-1);
 }
