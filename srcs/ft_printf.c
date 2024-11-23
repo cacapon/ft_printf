@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 16:47:00 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 18:58:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static int	_format(const char **str, va_list args)
 	handlers['d'] = handle_decimal;
 	handlers['i'] = handle_decimal;
 	handlers['u'] = handle_unsigned;
+	handlers['x'] = handle_lower_hex;
+	handlers['X'] = handle_upper_hex;
 	handlers['%'] = handle_percent;
 	if (handlers[(unsigned char)**str])
 		count += handlers[(unsigned char)**str](args);
