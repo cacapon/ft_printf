@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 14:14:35 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:57:16 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,18 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	count = 0;
 	while (*str)
-		count += _format(&str, args);
+	{
+		if (*str == '%')
+		{
+			str++;
+			count += _format(&(str), args);
+		}
+		else
+		{
+			count += ft_putchar_fd_retlen(*str, 1);
+			str++;
+		}
+	}
 	va_end(args);
 	return (count);
 }
@@ -37,9 +48,10 @@ int	ft_printf(const char *str, ...)
 /**
  * @brief strが%の場合それに応じたフォーマットを出力します。
  *
- * @param str	: formatを含む可能性がある文字列
+ * @param str	: %[csdiu%]
  * @param args	: formatに関する引数
  * @return int  : 出力した文字列の長さ
+ * @note	pre: %からはじまること
  */
 static int	_format(const char **str, va_list args)
 {
@@ -54,17 +66,10 @@ static int	_format(const char **str, va_list args)
 	handlers['i'] = handle_decimal;
 	handlers['u'] = handle_unsigned;
 	handlers['%'] = handle_percent;
-	if (**str != '%')
-	{
-		count += ft_putchar_fd_retlen(**str, 1);
-		(*str)++;
-		return (count);
-	}
-	(*str)++;
 	if (handlers[(unsigned char)**str])
 		count += handlers[(unsigned char)**str](args);
-	else if (*str)
-		(*str)++;
+	else
+		count += ft_putchar_fd_retlen('%', 1);
 	(*str)++;
 	return (count);
 }
