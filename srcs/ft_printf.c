@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 14:39:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 13:34:32 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 // }
 
 /**
- * @brief 
+ * @brief strが%の場合それに応じたフォーマットを出力します。
  * 
- * @param str 
- * @param args 
- * @return int 
+ * @param str	: formatを含む可能性がある文字列 
+ * @param args	: formatに関する引数
+ * @return int  : 出力した文字列の長さ
  */
-int	_format(const char **str, va_list args)
+static int	_format(const char **str, va_list args)
 {
 	int	count;
 
@@ -40,6 +40,8 @@ int	_format(const char **str, va_list args)
 			count += ft_printf(ft_itoa(va_arg(args, int)));
 		else if (**str == 'u')
 			count += ft_printf(ft_utoa(va_arg(args, unsigned int)));
+		else if (**str == '%')
+			count += ft_putchar_fd_retlen('%', 1);
 		else
 		{
 			count += ft_putchar_fd_retlen('%', 1);
