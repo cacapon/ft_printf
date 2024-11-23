@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 14:57:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:03:01 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,9 @@ int	ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str == '%')
-		{
-			str++;
-			count += _format(&(str), args);
-		}
+			count += _format((str++, &str), args);
 		else
-		{
-			count += ft_putchar_fd_retlen(*str, 1);
-			str++;
-		}
+			count += ft_putchar_fd_retlen(*str++, 1);
 	}
 	va_end(args);
 	return (count);
