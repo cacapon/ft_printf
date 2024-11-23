@@ -6,21 +6,29 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 11:31:03 by ttsubo            #+#    #+#              #
-#    Updated: 2024/11/23 16:49:43 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/11/23 17:48:02 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET	= libftprintf.a
-LIBFT	= libft
-CC 		= gcc -Wall -Wextra -Werror
-SRCS	= srcs/ft_printf.c	srcs/_format_handler.c	srcs/_format_handler2.c
+TARGET		= libftprintf.a
+LIBFT		= libft
+LIBFT_BLD	= libft
+CC 			= gcc -Wall -Wextra -Werror
+SRCS		= srcs/ft_printf.c	srcs/_format_handler.c	srcs/_format_handler2.c
 
-OBJS	= $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
+
+ifeq ($(MAKECMDGOALS), debug)
+	LIBFT_BLD := libft debug
+	CC := gcc -Wall -Wextra -Werror -g
+endif
 
 all: $(TARGET)
 
+debug: $(TARGET)
+
 $(TARGET): $(OBJS)
-	$(MAKE) -C $(LIBFT)
+	$(MAKE) -C $(LIBFT_BLD)
 	cp $(LIBFT)/libft.a $@
 	ar rcs $@ $^
 
@@ -37,4 +45,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re debug
