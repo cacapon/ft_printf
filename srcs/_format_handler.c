@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 13:57:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 17:18:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int	handle_decimal(va_list args)
 
 int	handle_unsigned(va_list args)
 {
-	return (ft_printf(ft_utoa(va_arg(args, unsigned int))));
+	unsigned int u_num;
+	char dst[10];
+
+	u_num = va_arg(args, unsigned int);
+	return (ft_printf(ft_utoa(u_num, dst)));
 }
 
 int	handle_percent(va_list args)
