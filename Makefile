@@ -6,14 +6,14 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 11:31:03 by ttsubo            #+#    #+#              #
-#    Updated: 2024/11/20 12:25:35 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/11/23 14:08:04 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET	= libftprintf.a
 LIBFT	= libft
 CC 		= gcc -Wall -Wextra -Werror
-SRCS	= srcs/ft_printf.c
+SRCS	= srcs/ft_printf.c	srcs/_format_handler.c
 
 OBJS	= $(SRCS:.c=.o)
 

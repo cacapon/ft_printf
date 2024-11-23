@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   _format_handler.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:04:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 14:01:55 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/11/23 14:05:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef _FORMAT_HANDLER_H
+# define _FORMAT_HANDLER_H
 
-# include "../libft/libft.h"
-# include "_format_handler.h"
+# define MAX_HANDLER 256
 # include <stdarg.h>
 
-typedef int	(*t_handler)(va_list args);
-
-int	ft_printf(const char *str, ...);
+int	handle_char(va_list args);
+int	handle_string(va_list args);
+int	handle_decimal(va_list args);
+int	handle_unsigned(va_list args);
+int	handle_percent(va_list args);
 
 #endif
