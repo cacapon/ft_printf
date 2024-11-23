@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 15:03:01 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:47:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static int	_format(const char **str, va_list args)
 	ft_bzero(handlers, sizeof(handlers));
 	handlers['c'] = handle_char;
 	handlers['s'] = handle_string;
+	handlers['p'] = handle_ptr;
 	handlers['d'] = handle_decimal;
 	handlers['i'] = handle_decimal;
 	handlers['u'] = handle_unsigned;
