@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 18:47:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/03 14:46:20 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ int	handle_char(va_list args)
 
 int	handle_string(va_list args)
 {
-	return (ft_putstr_fd_retlen(va_arg(args, char *), FD_STDOUT));
+	char	*arg_str;
+
+	arg_str = va_arg(args, char *);
+	if (arg_str == NULL)
+		return (ft_putstr_fd_retlen("(null)", FD_STDOUT));
+	return (ft_putstr_fd_retlen(arg_str, FD_STDOUT));
 }
 
 int	handle_decimal(va_list args)
