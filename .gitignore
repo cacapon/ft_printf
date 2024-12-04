@@ -6,3 +6,4 @@ main.c
 *.outpft/
 pft/
 .vscode/
+printfTester/
