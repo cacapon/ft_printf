@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunum_fd_retlen.c                             :+:      :+:    :+:   */
+/*   ft_printf_define.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/05 15:01:20 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/05 16:24:01 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/05 16:30:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_DEFINE_H
+# define FT_PRINTF_DEFINE_H
 
-/**
- * @brief 符号なしの数字unumをfdに出力します。
- * 
- * @param unum 		: 符号なし数値
- * @param fd 		: ファイルディスクリプタ
- * @return size_t	: 符号なし数値の長さ 
- */
-size_t	ft_putunum_fd_retlen(size_t unum, int fd)
-{
-	size_t	len;
-	
-	len = 0;
-	return (len);
-}
+//define
+# define UPPER_HEX "0123456789ABCDEF"
+# define LOWER_HEX "0123456789abcdef"
+# define HEX_IS_LOWER 0
+# define HEX_IS_UPPER 1
+# define HEX_BASE 16
+# define DEC_BASE 10
+# define MAX_HANDLER UCHAR_MAX
+# define MAX_PTR_LEN 20
+# define MAX_HEX_LEN 9
+# define FD_STDOUT 1
+
+#endif

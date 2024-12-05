@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 18:49:12 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/05 17:45:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 
 # include <limits.h>
 # include <stdarg.h>
-# define MAX_HANDLER UCHAR_MAX
-# define MAX_PTR_LEN 20
-# define MAX_HEX_LEN 9
-# define HEX_IS_LOWER 0
-# define HEX_IS_UPPER 1
-# define FD_STDOUT 1
+# include "ft_printf_define.h"
+# include "ft_printf_utils.h"
 
 // handler 1
 int	handle_char(va_list args);

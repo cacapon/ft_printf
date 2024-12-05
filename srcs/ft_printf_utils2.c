@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:04:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/05 16:25:42 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/05 HEX_BASE:23:36 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf_utils.h"
 
-# include "_format_handler.h"
-# include "ft_printf_utils.h"
-# include "ft_printf_define.h"
-# include <stdarg.h>
+/**
+ * @brief ポインタを１６進数形式で出力します。
+ *
+ * @param ptr
+ * @param fd
+ * @return size_t
+ */
+size_t	ft_putptr_fd(void *ptr, int fd)
+{
+	size_t		len;
 
-typedef int	(*t_handler)(va_list args);
-
-int	ft_printf(const char *str, ...);
-
-#endif
+	if (!ptr)
+		return (ft_putstr_fd("0x0", fd));
+	len = ft_putstr_fd("0x", fd);
+	len += ft_puthex_fd((uintptr_t)ptr, fd, HEX_IS_LOWER);
+	return (len);
+}
