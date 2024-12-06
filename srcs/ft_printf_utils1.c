@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/05 HEX_BASE:29:24 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/06 11:42:43 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ size_t	ft_putnum_fd(int n, int fd)
 	if (n < 0)
 	{
 		len += ft_putchar_fd('-', fd);
-		abs_num = (size_t)(-n);
+		abs_num = (unsigned int)(-n);
 	}
 	else
 		abs_num = (size_t)n;
