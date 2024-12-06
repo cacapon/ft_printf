@@ -79,7 +79,7 @@ size_t	ft_putnum_fd(int n, int fd)
  * @param fd 		: ファイルディスクリプタ
  * @return size_t	: 符号なし数値の長さ
  */
-size_t	ft_putunum_fd(size_t n, int fd)
+size_t	ft_putunum_fd(unsigned int n, int fd)
 {
 	char	c;
 	size_t	len;
@@ -102,7 +102,7 @@ size_t	ft_putunum_fd(size_t n, int fd)
  * @return char*	: 変換後の文字列の先頭ポインタ
  * @note			: pre: 負の数は呼び出し元で変換すること
  */
-size_t	ft_puthex_fd(size_t n, int fd, int is_upper)
+size_t	ft_puthex_fd(unsigned int n, int fd, int is_upper)
 {
 	char	c;
 	size_t	len;
