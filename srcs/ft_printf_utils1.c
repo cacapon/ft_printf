@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 12:30:58 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/06 12:32:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ size_t	ft_putunum_fd(unsigned int n, int fd)
  *
  * @param num		: 変換する符号なし整数
  * @param fd 		: ファイルディスクリプタ
- * @param is_upper	: 大文字表記にするかのフラグ 1だと有効
+ * @param is_upper	: 大文字表記にするかのフラグ(1だと有効)
  * @return char*	: 変換後の文字列の先頭ポインタ
  * @note			: pre: 負の数は呼び出し元で変換すること
  */

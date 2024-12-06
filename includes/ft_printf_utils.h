@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:10:23 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 12:19:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/06 12:31:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <unistd.h>
 
 // functions
-
 //// ft_printf_utils1.c
+
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putstr_fd(char *s, int fd);
 size_t	ft_putnum_fd(int n, int fd);
@@ -28,6 +28,7 @@ size_t	ft_putunum_fd(unsigned int n, int fd);
 size_t	ft_puthex_fd(unsigned int n, int fd, int is_upper);
 
 //// ft_printf_utils2.c
+
 size_t	ft_putptr_fd(void *ptr, int fd);
 
 #endif
