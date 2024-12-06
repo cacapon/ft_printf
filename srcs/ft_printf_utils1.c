@@ -52,9 +52,9 @@ size_t	ft_putstr_fd(char *s, int fd)
  */
 size_t	ft_putnum_fd(int n, int fd)
 {
-	char	c;
-	size_t	len;
-	size_t	abs_num;
+	char			c;
+	size_t			len;
+	unsigned int	abs_num;
 
 	len = 0;
 	if (n < 0)
@@ -107,7 +107,7 @@ size_t	ft_puthex_fd(size_t n, int fd, int is_upper)
 	char	c;
 	size_t	len;
 
-	len =0;
+	len = 0;
 	if (n >= HEX_BASE)
 		len += ft_puthex_fd(n / HEX_BASE, fd, is_upper);
 	if (is_upper)

@@ -15,9 +15,9 @@
 /**
  * @brief ポインタを１６進数形式で出力します。
  *
- * @param ptr
- * @param fd
- * @return size_t
+ * @param ptr		: アドレスを出力したいポインタ
+ * @param fd		: ファイルディスクリプタ
+ * @return size_t	: 出力した文字列の長さ
  */
 size_t	ft_putptr_fd(void *ptr, int fd)
 {
