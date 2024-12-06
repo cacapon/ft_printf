@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 11:42:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/06 12:30:58 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_putchar_fd(char c, int fd)
 }
 
 /**
- * @brief 文字列sをfdに出力します。
+ * @brief 文字列sをfdに出力します
  *
  * @param s 		: 文字列
  * @param fd 		: ファイルディスクリプタ
@@ -44,7 +44,7 @@ size_t	ft_putstr_fd(char *s, int fd)
 }
 
 /**
- * @brief 符号ありの数字numをfdに出力します。
+ * @brief 符号ありの数字numをfdに出力します
  *
  * @param num 		: 符号あり整数
  * @param fd 		: ファイルディスクリプタ
@@ -73,7 +73,7 @@ size_t	ft_putnum_fd(int n, int fd)
 }
 
 /**
- * @brief 符号なしの数字unumをfdに出力します。
+ * @brief 符号なしの数字unumをfdに出力します
  *
  * @param unum 		: 符号なし数値
  * @param fd 		: ファイルディスクリプタ
@@ -94,7 +94,7 @@ size_t	ft_putunum_fd(unsigned int n, int fd)
 }
 
 /**
- * @brief 符号なし整数を１６進数形式の文字列で出力します。
+ * @brief 符号なし整数を１６進数形式の文字列で出力します
  *
  * @param num		: 変換する符号なし整数
  * @param fd 		: ファイルディスクリプタ
