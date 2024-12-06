@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 11:41:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/06 12:22:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static int	_format(const char **str, va_list args)
 }
 
 /**
- * @brief Converts and outputs strings according to format
+ * @brief 渡された引数をフォーマットに従って変換し標準出力に出力します
  *
- * @param [in] str 	: Strings to output (may include format specifiers)
- * @param [in] ... 	: Variables to be given to the format
- * @return int 		: Number of characters output (not including '\0')
+ * @param [in] str 	: 出力する文字列(フォーマットを含む場合もある)
+ * @param [in] ... 	: フォーマットに与える変数
+ * @return int 		: 出力した文字列の長さ 
  */
 int	ft_printf(const char *str, ...)
 {
