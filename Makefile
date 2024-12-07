@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 11:31:03 by ttsubo            #+#    #+#              #
-#    Updated: 2024/12/07 19:25:53 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/12/07 19:41:45 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(TARGET)
 debug: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(MAKE) -C $(LIBFT_BLD)
+	$(MAKE) -C $(LIBFT_BLD) bonus
 	ar rcs $@ $^
 
 %.o: %.c
