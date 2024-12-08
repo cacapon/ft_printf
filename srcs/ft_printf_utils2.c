@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/08 11:27:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:38:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,4 @@ void	*ftp_memset(void *b, int c, size_t len)
 	while (i < len)
 		ptr[i++] = (unsigned char)c;
 	return (b);
-}	
+}
