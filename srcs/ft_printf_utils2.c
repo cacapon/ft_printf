@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 12:30:34 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:38:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,24 @@ size_t	ft_putptr_fd(void *ptr, int fd)
 	len = ft_putstr_fd("0x", fd);
 	len += _ft_putptr_fd_rec((uintptr_t)ptr, fd);
 	return (len);
+}
+
+/**
+ * @brief メモリ領域bをcで長さlenまで埋めます
+ * 
+ * @param b 		: メモリ領域
+ * @param c 		: 埋める形式 (0-255までの数値)
+ * @param len 		: 埋める長さ
+ * @return void*	: 適用後のメモリ領域の先頭アドレス
+ */
+void	*ftp_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)b;
+	while (i < len)
+		ptr[i++] = (unsigned char)c;
+	return (b);
 }

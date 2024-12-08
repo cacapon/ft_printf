@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:10:23 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 12:31:37 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:27:34 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ size_t	ft_puthex_fd(unsigned int n, int fd, int is_upper);
 //// ft_printf_utils2.c
 
 size_t	ft_putptr_fd(void *ptr, int fd);
+void	*ftp_memset(void *b, int c, size_t len);
 
 #endif
