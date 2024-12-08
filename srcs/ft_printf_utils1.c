@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/06 12:32:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:46:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ size_t	ft_putnum_fd(int n, int fd)
 		abs_num = (unsigned int)(-n);
 	}
 	else
-		abs_num = (size_t)n;
+		abs_num = (unsigned int)n;
 	if (abs_num >= DEC_BASE)
 		len += ft_putunum_fd(abs_num / DEC_BASE, fd);
 	c = (abs_num % DEC_BASE) + '0';
