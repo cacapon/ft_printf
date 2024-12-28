@@ -7,3 +7,4 @@ main.c
 pft/
 .vscode/
 printfTester/
+main.d*
