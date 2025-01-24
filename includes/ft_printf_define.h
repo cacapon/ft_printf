@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:24:01 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/05 16:30:28 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/24 14:31:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 //define
 # define UPPER_HEX "0123456789ABCDEF"
 # define LOWER_HEX "0123456789abcdef"
-# define HEX_IS_LOWER 0
-# define HEX_IS_UPPER 1
+# define HAX_IS_LOW 0
+# define HAX_IS_UP 1
 # define HEX_BASE 16
 # define DEC_BASE 10
 # define MAX_HANDLER UCHAR_MAX
